@@ -58,7 +58,9 @@ AUTHENTICATION_BACKENDS = [
     # ... other backends ...
 ]
 
-
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'posts.serializers.UserDetailsSerializer',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

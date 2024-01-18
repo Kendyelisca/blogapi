@@ -15,13 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  re_path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, re_path, re_path
+from django.urls import include, path, re_path
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
     re_path('api-auth/', include('rest_framework.urls')),
-    re_path(r'^rest-auth/', include('rest_auth.urls')),
-    re_path(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
+    re_path(r'^api/v1/rest-auth/', include('rest_auth.urls')),
+    re_path(r'^api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+    re_path(r'^api/v1/rest-auth/login/', include('rest_auth.registration.urls')),  # Include login
+    re_path(r'^api/v1/rest-auth/logout/', include('rest_auth.registration.urls')),  # Include logout
+    re_path(r'^api/v1/rest-auth/password/reset/', include('rest_auth.registration.urls')),  # Include password reset
+    re_path(r'^api/v1/rest-auth/password/reset/confirm/', include('rest_auth.registration.urls')),  # Include password reset confirmation
+    # Add other endpoints as needed
 ]
+
+
+
+
 
 
