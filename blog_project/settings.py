@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger', 
     'posts.apps.PostsConfig',
     # ... other apps ...
 ]
@@ -157,3 +158,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SWAGGER_SETTINGS = {
+'LOGIN_URL': 'rest_framework:login',
+'LOGOUT_URL': 'rest_framework:logout',
+}
